@@ -9,7 +9,7 @@ This is a [Docker](https://www.docker.com) windows setup to run a simple api wit
 - [Amazon Web Service](https://aws.amazon.com), for hosting, scaling, and managing deployments of containerized application.
 - [Cloud Formation](https://aws.amazon.com), for managing Infrastucture As a Code of AWS resources.
 - [Docker](https://www.docker.com), for building a production-ready environment of windows machines.
-- [NGINX](https://kubernetes.github.io/ingress-nginx/), for assemblying a NGINX configuration file (nginx.conf).
+- [NGINX](https://www.nginx.com), for assemblying a NGINX configuration file (nginx.conf).
 
 
 ## How to run
@@ -34,7 +34,7 @@ $ ./build-nginx.ps1
 ```
 $ ./run-nginx.ps1
 ```
-5 - Open a web browser
+5 - Open a browser
 
 ```
 http://localhost:8080/api/players
@@ -45,4 +45,5 @@ $ http://localhost:8080/api/games
 ```
 ## Tests
 
-This structure was tested on a windows server 2019 machine.
+* This structure was tested on a windows server 2019 machine. 
+* CloudFormation is optional, but testable running create.sh <taskName> <configuration.yaml> <parameter.json>
