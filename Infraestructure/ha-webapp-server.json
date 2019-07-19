@@ -1,0 +1,10 @@
+[{
+    "ParameterKey": "WebAppEnv",
+    "ParameterValue": "production"
+}, {
+    "ParameterKey": "S3AccessKey",
+    "ParameterValue": "AKIA4AKF4HZFNB6YAOFA"
+}, {
+    "ParameterKey": "S3SecretKey",
+    "ParameterValue": "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"
+}]

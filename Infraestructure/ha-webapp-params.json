@@ -1,0 +1,10 @@
+[{
+    "ParameterKey": "WebAppEnv",
+    "ParameterValue": "production"
+}, {
+    "ParameterKey": "S3BastionSSH",
+    "ParameterValue": "derivco-key"
+}, {
+    "ParameterKey": "KeyBastionSSH",
+    "ParameterValue": "derivco-key"
+}]
