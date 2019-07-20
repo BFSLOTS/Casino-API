@@ -56,6 +56,10 @@ Resources:
           ToPort: 80
           CidrIp: 0.0.0.0/0
         - IpProtocol: tcp
+          FromPort: 8000
+          ToPort: 8000
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
           FromPort: 3389
           ToPort: 3389
           CidrIp: 90.191.9.164/32
@@ -125,8 +129,9 @@ Resources:
             - "#Logging in to AWS Account"
             - Set-AWSCredentials -AccessKey ${S3AccessKey} -SecretKey ${S3SecretKey}
             - Read-S3Object -BucketName ${BucketName} -key ${BucketFile}  -File "~/${BucketFile}" -Region "eu-west-1"
-            - powershel.exe ~/${BucketFile} ${BucketName} ${BastionPublicKey}
-            - Read-S3Object -BucketName ${BucketName} -key Dockerfile  -File "~/Dockerfile" -Region "eu-west-1"
+            - powershel.exe docker run -p 8000:8000 -d aminueza/cassinoapi:v1.0.0
+            - powershel.exe docker run -p 80:80 -d aminueza/nginx:v1.0.0
+            - powershel.exe docker ps -a
             - "</powershell>"
       IamInstanceProfile:
         Fn::ImportValue: !Sub "${WebAppEnv}-IAM-NAME"
@@ -173,7 +178,7 @@ Resources:
         - Type: forward
           TargetGroupArn: !Ref WebAppTG
       LoadBalancerArn: !Ref WebAppLB
-      Port: 80
+      Port: 8000
       Protocol: HTTP
 
   WebAppLR:
@@ -196,7 +201,7 @@ Resources:
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 8
       HealthyThresholdCount: 2
-      Port: 80
+      Port: 8000
       Protocol: HTTP
       UnhealthyThresholdCount: 5
       VpcId:
@@ -270,7 +275,7 @@ Resources:
   #         - DomainName: !GetAtt [WebAppLB, DNSName]
   #           Id: !GetAtt [WebAppLB, DNSName]
   #           CustomOriginConfig:
-  #             HTTPPort: 80
+  #             HTTPPort: 8000
   #             OriginProtocolPolicy: http-only
   #       Enabled: "true"
   #       CustomErrorResponses:
