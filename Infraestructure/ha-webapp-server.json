@@ -3,8 +3,8 @@
     "ParameterValue": "production"
 }, {
     "ParameterKey": "S3AccessKey",
-    "ParameterValue": "AKIA4AKF4HZFNB6YAOFA"
+    "ParameterValue": ""
 }, {
     "ParameterKey": "S3SecretKey",
-    "ParameterValue": "KG8/AKDqNw8hjtlo0KHXh23ZGY2BFUzTOdnG082A"
+    "ParameterValue": ""
 }]
